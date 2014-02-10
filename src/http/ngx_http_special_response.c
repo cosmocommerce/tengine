@@ -20,50 +20,45 @@ static ngx_buf_t *ngx_http_set_server_info(ngx_http_request_t *r);
 
 
 static u_char ngx_http_error_doctype[] =
-"<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">" CRLF;
-
+"<!DOCTYPE html>" CRLF;
 
 static u_char ngx_http_server_info_head[] =
-" Sorry for the inconvenience.<br/>" CRLF
-"Please report this message and include the following information to us.<br/>"
-CRLF
-"Thank you very much!</p>" CRLF
 "<table>" CRLF
 "<tr>" CRLF
 "<td>URL:</td>" CRLF
-"<td>"
+"<td><ins>"
 ;
 
 
 static u_char ngx_http_server_info_server[] =
-"</td>" CRLF
+"</ins></td>" CRLF
 "</tr>" CRLF
 "<tr>" CRLF
 "<td>Server:</td>" CRLF
-"<td>"
+"<td><ins>"
 ;
 
 
 static u_char ngx_http_server_info_admin[] =
-"</td>" CRLF
+"</ins></td>" CRLF
 "</tr>" CRLF
 "<tr>" CRLF
 "<td>Admin:</td>" CRLF
-"<td>"
+"<td><ins>"
 ;
 
 
 static u_char ngx_http_server_info_date[] =
-"</td>" CRLF
+"</ins></td>" CRLF
 "</tr>" CRLF
 "<tr>" CRLF
 "<td>Date:</td>" CRLF
-"<td>"
+"<td><ins>"
 ;
 
 
 static u_char ngx_http_server_info_tail[] =
-"</td>" CRLF
+"</ins></td>" CRLF
 "</tr>" CRLF
 "</table>" CRLF
 ;
@@ -142,13 +137,16 @@ static char ngx_http_error_307_page[] =
 
 
 static char ngx_http_error_400_page[] =
-"<html>" CRLF
-"<head><title>400 Bad Request</title></head>" CRLF
-"<body bgcolor=\"white\">" CRLF
-"<h1>400 Bad Request</h1>" CRLF
-"<p>Your browser sent a request that this server could not understand."
+"<html lang=en>" CRLF
+"<meta charset=utf-8>" CRLF
+"<meta name=viewport content=\"initial-scale=1, minimum-scale=1, width=device-width\">" CRLF
+"<title>400 Bad Request</title>" CRLF
+"<style>" CRLF
+"*{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}" CRLF
+"</style>" CRLF
+"<p><b>400.</b> <ins>Bad Request.</ins>" CRLF
+"<p>Your browser sent a request that this server could not understand.  <ins>That’s all we know.</ins>" 
 ;
-
 
 static char ngx_http_error_401_page[] =
 "<html>" CRLF
@@ -179,11 +177,15 @@ static char ngx_http_error_403_page[] =
 
 
 static char ngx_http_error_404_page[] =
-"<html>" CRLF
-"<head><title>404 Not Found</title></head>" CRLF
-"<body bgcolor=\"white\">" CRLF
-"<h1>404 Not Found</h1>" CRLF
-"<p>The requested URL was not found on this server."
+"<html lang=en>" CRLF
+"<meta charset=utf-8>" CRLF
+"<meta name=viewport content=\"initial-scale=1, minimum-scale=1, width=device-width\">" CRLF
+"<title>Error 404 (Not Found)</title>" CRLF
+"<style>" CRLF
+"*{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}" CRLF
+"</style>" CRLF
+"<p><b>404.</b> <ins>That’s an error.</ins>" CRLF
+"<p>The requested URL was not found on this server.  <ins>That’s all we know.</ins>" 
 ;
 
 
@@ -332,12 +334,15 @@ CRLF
 
 
 static char ngx_http_error_500_page[] =
-"<html>" CRLF
-"<head><title>500 Internal Server Error</title></head>" CRLF
-"<body bgcolor=\"white\">" CRLF
-"<h1>500 Internal Server Error</h1>" CRLF
-"<p>The server encountered an internal error or misconfiguration and was "
-"unable to complete your request."
+"<html lang=en>" CRLF
+"<meta charset=utf-8>" CRLF
+"<meta name=viewport content=\"initial-scale=1, minimum-scale=1, width=device-width\">" CRLF
+"<title>500 Internal Server Error</title>" CRLF
+"<style>" CRLF
+"*{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}" CRLF
+"</style>" CRLF
+"<p><b>500.</b> <ins>Internal Server Error</ins>" CRLF
+"<p>The server encountered an internal error or misconfiguration and was unable to complete your request.  <ins>That’s all we know.</ins>" 
 ;
 
 
@@ -351,12 +356,17 @@ static char ngx_http_error_501_page[] =
 
 
 static char ngx_http_error_502_page[] =
-"<html>" CRLF
-"<head><title>502 Bad Gateway</title></head>" CRLF
-"<body bgcolor=\"white\">" CRLF
-"<h1>502 Bad Gateway</h1>" CRLF
-"<p>The proxy server received an invalid response from an upstream server."
+"<html lang=en>" CRLF
+"<meta charset=utf-8>" CRLF
+"<meta name=viewport content=\"initial-scale=1, minimum-scale=1, width=device-width\">" CRLF
+"<title>502 Bad Gateway</title>" CRLF
+"<style>" CRLF
+"*{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}" CRLF
+"</style>" CRLF
+"<p><b>502.</b> <ins>Bad Gateway</ins>" CRLF
+"<p>The proxy server received an invalid response from an upstream server.  <ins>That’s all we know.</ins>" 
 ;
+
 
 
 static char ngx_http_error_503_page[] =
