@@ -10,15 +10,15 @@
 
 
 #define nginx_version      1004004
-#define NGINX_VERSION      "1.4.4"
-#define NGINX_VER          "nginx/" NGINX_VERSION
+#define NGINX_VERSION      "2014.4.4"
+#define NGINX_VER          "CosmoCommerce WebServer/" NGINX_VERSION
 
-#define TENGINE            "Tengine"
+#define TENGINE            "CosmoCommerce WebServer/"
 #define tengine_version    2000000
-#define TENGINE_VERSION    "2.0.0"
+#define TENGINE_VERSION    "2014.02.10"
 #define TENGINE_VER        TENGINE "/" TENGINE_VERSION
 
-#define NGINX_VAR          "NGINX"
+#define NGINX_VAR          "CosmoCommerce WebServer"
 #define NGX_OLDPID_EXT     ".oldbin"
 
 
